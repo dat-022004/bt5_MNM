@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # 1. Database lưu giá trị tức thời
+  mariadb:
+    image: mariadb:10.6
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: monitor_db
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+
+  # 2. Database lưu lịch sử
+  influxdb:
+    image: influxdb:1.8 # Dùng bản 1.8 cho dễ kết nối với Node-RED ban đầu
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_DB=history_db
+
+  # 3. Nơi điều phối dữ liệu
+  nodered:
+    image: nodered/node-red
+    ports:
+      - "1880:1880"
+    depends_on:
+      - mariadb
+      - influxdb
+
+  # 4. Trực quan hóa dữ liệu lịch sử
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - influxdb
+    environment:
+      - GF_SECURITY_ALLOW_EMBEDDING=true
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+
+  # 5. API Backend (Python)
+  api:
+    build: ./api
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mariadb
+
+  # 6. Webserver cho Frontend
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html

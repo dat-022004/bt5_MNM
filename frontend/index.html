@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Giám Sát Realtime</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; margin-top: 50px; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block; margin-bottom: 30px; }
+        h1 { color: #333; }
+        .value { font-size: 50px; font-weight: bold; color: #e74c3c; margin-top: 10px; }
+        iframe { width: 80%; height: 500px; border: none; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: white; }
+    </style>
+</head>
+<body>
+    <h1>Hệ Thống Giám Sát Thời Gian Thực</h1>
+    
+    <div class="card">
+        <h2>Giá Vàng Tức Thời</h2>
+        <div class="value" id="realtime-value">Đang tải...</div>
+    </div>
+
+    <br>
+
+    <h2>Biểu Đồ Lịch Sử</h2>
+    <!-- Đã sửa /d/ thành /d-solo/ và đổi đuôi thành &panelId=1 -->
+    <iframe id="grafana-iframe" src="http://localhost:3000/d-solo/addcq6f/bt5?orgId=1&from=2026-06-07T07:30:27.313Z&to=2026-06-07T07:35:27.313Z&timezone=browser&refresh=5s&panelId=1"></iframe>
+
+    <script src="script.js"></script>
+</body>
+</html>

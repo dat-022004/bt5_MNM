@@ -1,0 +1,9 @@
+img/
+*.pyc
+__pycache__/
+.env
+.vscode/
+*.sqlite3
+venv/
+env/
+node_modules/
