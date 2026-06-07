@@ -37,7 +37,7 @@ Hệ thống sử dụng **Docker Compose** để quản lý 6 dịch vụ hoạ
   - Ghi lịch sử vào InfluxDB.
   - Gửi cảnh báo Telegram nếu giá vượt ngưỡng an toàn.
 
-    <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cb8b13b4-4638-4695-9971-5b177b36065a" />  
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7d0b1acb-31ca-491b-b07c-b4329602e8ee" />  
 
 
 ### Bước 3: Trực quan hóa (Grafana)
