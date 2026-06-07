@@ -45,7 +45,8 @@ Hệ thống sử dụng **Docker Compose** để quản lý 6 dịch vụ hoạ
 - Xây dựng biểu đồ Time-series giám sát biến động giá theo thời gian thực.
 
   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ad00ecbb-b567-4e3b-bdef-06d65dadd77e" />
-  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/97450ff5-11c4-4289-8e21-610536774171" />  
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0c90036e-66d2-43da-9eab-d1a5ec4bd722" />  
+
 
 ### Bước 4: Xây dựng Bot Telegram
 - Cấu hình Bot qua `@BotFather`.
